@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Great Precision Property Services | Professional Property Repair & Maintenance in Northern NJ</title>
+<meta name="description" content="Premium property repair and maintenance serving Morris, Passaic & Bergen County NJ. Professional, reliable service for homeowners who value quality work done right.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy: #1E3A5F;
+    --navy-light: #2A4E7F;
+    --gold: #efbf5a;
+    --gold-light: #f5d07a;
+    --white: #FFFFFF;
+    --off-white: #F8F7F4;
+    --gray: #F0EEE9;
+    --charcoal: #2C2C2C;
+    --text-dark: #1A1A2E;
+    --text-mid: #4A5568;
+    --text-light: #718096;
+  }
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body { font-family:'DM Sans',sans-serif; color:var(--text-dark); line-height:1.6; }
+  
+  /* HEADER */
+  .header { background:var(--white); padding:16px 32px; display:flex; justify-content:space-between; align-items:center; border-bottom:1px solid var(--gray); position:sticky; top:0; z-index:100; }
+  .logo { height:48px; width:auto; }
+  .header-right { display:flex; gap:20px; align-items:center; }
+  .header-phone { color:var(--navy); font-weight:600; font-size:1.05rem; text-decoration:none; white-space:nowrap; }
+  .header-phone:hover { color:var(--navy-light); }
+  .header-cta { background:var(--navy); color:var(--white); padding:10px 20px; border-radius:4px; text-decoration:none; font-weight:700; font-size:0.9rem; white-space:nowrap; transition:background 0.2s; }
+  .header-cta:hover { background:var(--navy-light); }
+  
+  /* HERO */
+  .hero { background:linear-gradient(135deg, var(--navy) 0%, var(--navy-light) 100%); color:var(--white); padding:80px 32px; text-align:center; }
+  .hero h1 { font-family:'Playfair Display',serif; font-size:3rem; font-weight:700; margin-bottom:20px; line-height:1.2; }
+  .hero .tagline { font-size:1.3rem; color:var(--gold-light); margin-bottom:12px; font-weight:300; }
+  .hero .sub { font-size:1.05rem; max-width:700px; margin:0 auto 32px; opacity:0.95; }
+  .hero-ctas { display:flex; gap:16px; justify-content:center; flex-wrap:wrap; }
+  .hero-btn { padding:14px 32px; border-radius:4px; text-decoration:none; font-weight:700; font-size:1rem; transition:all 0.2s; display:inline-block; }
+  .hero-btn-primary { background:var(--gold); color:var(--navy); }
+  .hero-btn-primary:hover { background:var(--gold-light); transform:translateY(-2px); box-shadow:0 4px 12px rgba(0,0,0,0.15); }
+  .hero-btn-secondary { background:transparent; color:var(--white); border:2px solid var(--white); }
+  .hero-btn-secondary:hover { background:rgba(255,255,255,0.1); }
+  
+  /* ZIP CHECKER */
+  .zip-section { background:var(--off-white); padding:48px 32px; text-align:center; border-bottom:1px solid var(--gray); }
+  .zip-box { max-width:500px; margin:0 auto; }
+  .zip-box h3 { font-size:1.3rem; color:var(--navy); margin-bottom:12px; }
+  .zip-box p { color:var(--text-mid); margin-bottom:20px; font-size:0.95rem; }
+  .zip-form { display:flex; gap:12px; justify-content:center; flex-wrap:wrap; }
+  .zip-input { padding:12px 16px; border:2px solid var(--gray); border-radius:4px; font-size:1rem; width:200px; font-family:'DM Sans',sans-serif; }
+  .zip-input:focus { outline:none; border-color:var(--gold); }
+  .zip-btn { background:var(--gold); color:var(--navy); padding:12px 20px; border-radius:4px; border:none; font-weight:700; font-size:0.9rem; cursor:pointer; transition:all 0.2s; white-space:nowrap; font-family:"DM Sans",sans-serif; }
+  .zip-btn:hover { background:var(--gold-light); }
+  .zip-result { margin-top:16px; padding:12px 20px; border-radius:4px; font-weight:600; display:none; }
+  .zip-result.yes { background:#EAF3DE; color:#3B6D11; display:block; }
+  .zip-result.no { background:#FAECE7; color:#993C1D; display:block; }
+  
+  /* SERVICES */
+  .services { padding:80px 32px; background:var(--white); }
+  .services h2 { font-family:'Playfair Display',serif; font-size:2.2rem; text-align:center; color:var(--navy); margin-bottom:16px; }
+  .services .intro { text-align:center; max-width:700px; margin:0 auto 48px; color:var(--text-mid); font-size:1.05rem; }
+  .services-grid { display:grid; grid-template-columns:repeat(auto-fit, minmax(280px, 1fr)); gap:24px; max-width:1100px; margin:0 auto; }
+  .service-card { background:var(--off-white); padding:28px; border-radius:6px; border-left:4px solid var(--gold); transition:transform 0.2s; }
+  .service-card:hover { transform:translateY(-4px); box-shadow:0 6px 20px rgba(0,0,0,0.08); }
+  .service-card h3 { font-size:1.2rem; color:var(--navy); margin-bottom:10px; }
+  .service-card p { color:var(--text-mid); font-size:0.9rem; line-height:1.6; }
+  
+  /* WHY GPPS */
+  .why { padding:80px 32px; background:var(--off-white); }
+  .why h2 { font-family:'Playfair Display',serif; font-size:2.2rem; text-align:center; color:var(--navy); margin-bottom:48px; }
+  .why-grid { display:grid; grid-template-columns:repeat(auto-fit, minmax(300px, 1fr)); gap:32px; max-width:1100px; margin:0 auto; }
+  .why-item { text-align:center; }
+  .why-item h3 { font-size:1.3rem; color:var(--navy); margin-bottom:12px; }
+  .why-item p { color:var(--text-mid); font-size:0.95rem; line-height:1.7; }
+  
+  /* NOT RIGHT FIT */
+  .not-fit { background:var(--navy); color:var(--white); padding:60px 32px; text-align:center; }
+  .not-fit h2 { font-family:'Playfair Display',serif; font-size:2rem; margin-bottom:16px; color:var(--gold); }
+  .not-fit p { max-width:700px; margin:0 auto; font-size:1.05rem; opacity:0.95; line-height:1.7; }
+  
+  /* CTA SECTION */
+  .cta-section { background:var(--navy); color:var(--white); padding:80px 32px; text-align:center; }
+  .cta-section h2 { font-family:'Playfair Display',serif; font-size:2.5rem; margin-bottom:16px; }
+  .cta-section .cta-btns { display:flex; gap:16px; justify-content:center; flex-wrap:wrap; margin-top:32px; }
+  .cta-btn { padding:14px 32px; border-radius:4px; text-decoration:none; font-weight:700; font-size:1rem; transition:all 0.2s; display:inline-block; }
+  .cta-btn-primary { background:var(--gold); color:var(--navy); }
+  .cta-btn-primary:hover { background:var(--gold-light); transform:translateY(-2px); }
+  .cta-btn-secondary { background:transparent; color:var(--white); border:2px solid var(--white); }
+  .cta-btn-secondary:hover { background:rgba(255,255,255,0.1); }
+  
+  /* FOOTER */
+  .footer { background:var(--white); padding:48px 32px 24px; text-align:center; border-top:3px solid var(--gold); }
+  .footer-logo { height:52px; margin-bottom:20px; }
+  .footer h3 { font-size:1.1rem; color:var(--navy); margin-bottom:8px; }
+  .footer p { color:var(--text-mid); font-size:0.9rem; margin-bottom:4px; }
+  .footer .service-area { margin:20px 0; color:var(--text-mid); font-size:0.9rem; }
+  .footer .legal { margin-top:32px; padding-top:20px; border-top:1px solid var(--gray); color:var(--text-light); font-size:0.8rem; }
+  
+  /* RESPONSIVE */
+  @media (max-width: 768px) {
+    .header { padding:12px 20px; flex-direction:column; gap:12px; }
+    .header-right { width:100%; justify-content:space-between; }
+    .hero { padding:60px 20px; }
+    .hero h1 { font-size:2rem; }
+    .hero .tagline { font-size:1.1rem; }
+    .services, .why, .cta-section { padding:60px 20px; }
+    .hero-ctas, .cta-btns { flex-direction:column; align-items:stretch; }
+    .hero-btn, .cta-btn { text-align:center; }
+  }
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<div class="header">
+  <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAwIiBoZWlnaHQ9IjYwIiB2aWV3Qm94PSIwIDAgMjAwIDYwIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgo8IS0tIFNpbXBsZSBHUFBTIGxvZ28gcGxhY2Vob2xkZXIgLS0+Cjx0ZXh0IHg9IjEwIiB5PSIzNSIgZm9udC1mYW1pbHk9IkRNIFNhbnMsIHNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMjAiIGZvbnQtd2VpZ2h0PSI3MDAiIGZpbGw9IiMxRTNBNUYiPkdSRUFUIFBSRUNJU0lPTjwvdGV4dD4KPHRleHQgeD0iMTAiIHk9IjUwIiBmb250LWZhbWlseT0iRE0gU2Fucywgc2Fucy1zZXJpZiIgZm9udC1zaXplPSI5IiBmaWxsPSIjZWZiZjVhIj5QUk9QRVJUWSBTRVJWSUNFCZWVTPC90ZXh0Pgo8L3N2Zz4=" alt="Great Precision Property Services" class="logo">
+  <div class="header-right">
+    <a href="tel:8482074572" class="header-phone">📞 (848) 207-4572</a>
+    <a href="https://tally.so/r/yPqXvd" class="header-cta">Get a Ballpark</a>
+  </div>
+</div>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="tagline">Northern New Jersey's Premier Property Services</div>
+  <h1>Professional Property Repair & Maintenance</h1>
+  <p class="sub">If you want it done right the first time by a team that shows up, communicates clearly, and stands behind their work — let's talk.</p>
+  <div class="hero-ctas">
+    <a href="https://tally.so/r/yPqXvd" class="hero-btn hero-btn-primary">📋 Get a Ballpark</a>
+    <a href="tel:8482074572" class="hero-btn hero-btn-secondary">📞 Call or Text: (848) 207-4572</a>
+  </div>
+</div>
+
+<!-- ZIP CHECKER -->
+<div class="zip-section">
+  <div class="zip-box">
+    <h3>Do we serve your area?</h3>
+    <p>We serve Morris, Passaic & Bergen County, NJ</p>
+    <div class="zip-form">
+      <input type="text" id="zipInput" class="zip-input" placeholder="Enter ZIP code" maxlength="5">
+      <button class="zip-btn" onclick="checkZip()">Check</button>
+    </div>
+    <div id="zipResult" class="zip-result"></div>
+  </div>
+</div>
+
+<!-- SERVICES -->
+<div class="services">
+  <h2>What We Do</h2>
+  <p class="intro">From quick repairs to full renovations, we handle the work that keeps your property looking sharp and running smoothly.</p>
+  <div class="services-grid">
+    <div class="service-card">
+      <h3>🔧 Plumbing & Fixtures</h3>
+      <p>Faucet replacement, toilet repairs, sink installations, drain clearing, and fixture upgrades.</p>
+    </div>
+    <div class="service-card">
+      <h3>⚡ Electrical Work</h3>
+      <p>Outlet and switch replacement, light fixture installation, ceiling fan mounting, GFCI upgrades.</p>
+    </div>
+    <div class="service-card">
+      <h3>🏠 Drywall & Painting</h3>
+      <p>Patch and repair, texture matching, full room painting, trim work, and cabinet refinishing.</p>
+    </div>
+    <div class="service-card">
+      <h3>🛠️ Carpentry & Doors</h3>
+      <p>Door installation and repair, trim and molding, shelving, closet systems, and custom built-ins.</p>
+    </div>
+    <div class="service-card">
+      <h3>🧱 Tile & Flooring</h3>
+      <p>Tile repair and replacement, backsplash installation, grout and caulk refresh, vinyl plank flooring.</p>
+    </div>
+    <div class="service-card">
+      <h3>🏡 Exterior & Decks</h3>
+      <p>Deck repair and refinishing, fence work, gutter cleaning and repair, mailbox installation.</p>
+    </div>
+  </div>
+</div>
+
+<!-- WHY GPPS -->
+<div class="why">
+  <h2>Why Great Precision?</h2>
+  <div class="why-grid">
+    <div class="why-item">
+      <h3>We Show Up</h3>
+      <p>Confirmed appointments. Clear communication. No ghosting, no excuses.</p>
+    </div>
+    <div class="why-item">
+      <h3>We Do It Right</h3>
+      <p>Quality materials, proper technique, attention to detail. No shortcuts.</p>
+    </div>
+    <div class="why-item">
+      <h3>We Stand Behind It</h3>
+      <p>If something's not right, we make it right. Your satisfaction is our reputation.</p>
+    </div>
+  </div>
+</div>
+
+<!-- NOT RIGHT FIT -->
+<div class="not-fit">
+  <h2>Not the Right Fit for Everyone</h2>
+  <p>We're not the cheapest option out there. If you're shopping purely on price, we're probably not the right fit. But if you value quality work, clear communication, and a team that treats your home with respect — we should talk.</p>
+</div>
+
+<!-- CTA SECTION -->
+<div class="cta-section">
+  <h2>Ready to get it handled?</h2>
+  <div class="cta-btns">
+    <a href="https://tally.so/r/yPqXvd" class="cta-btn cta-btn-primary">📋 Get a Ballpark</a>
+    <a href="tel:8482074572" class="cta-btn cta-btn-secondary">📞 Call or Text: (848) 207-4572</a>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<div class="footer">
+  <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAwIiBoZWlnaHQ9IjYwIiB2aWV3Qm94PSIwIDAgMjAwIDYwIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgo8IS0tIFNpbXBsZSBHUFBTIGxvZ28gcGxhY2Vob2xkZXIgLS0+Cjx0ZXh0IHg9IjEwIiB5PSIzNSIgZm9udC1mYW1pbHk9IkRNIFNhbnMsIHNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMjAiIGZvbnQtd2VpZ2h0PSI3MDAiIGZpbGw9IiMxRTNBNUYiPkdSRUFUIFBSRUNJU0lPTjwvdGV4dD4KPHRleHQgeD0iMTAiIHk9IjUwIiBmb250LWZhbWlseT0iRE0gU2Fucywgc2Fucy1zZXJpZiIgZm9udC1zaXplPSI5IiBmaWxsPSIjZWZiZjVhIj5QUk9QRVJUWSBTRVJWSUNFCZWVTPC90ZXh0Pgo8L3N2Zz4=" alt="Great Precision Property Services" class="footer-logo">
+  <h3>Great Precision Property Services</h3>
+  <p>Riverdale, NJ 07457 &nbsp;·&nbsp; <a href="tel:8482074572" style="color:var(--navy);text-decoration:none;font-weight:600;">(848) 207-4572</a></p>
+  <div class="service-area">Serving Morris, Passaic & Bergen County and surrounding North Jersey communities</div>
+  <div class="legal">
+    Licensed & Insured &nbsp;·&nbsp; © 2026 Great Precision Property Services &nbsp;·&nbsp; greatprecisionservices.com
+  </div>
+</div>
+
+<script>
+const VALID_ZIPS = ['07401','07405','07407','07410','07417','07420','07422','07423','07424','07430','07432','07435','07436','07438','07439','07442','07444','07446','07450','07452','07456','07457','07458','07460','07461','07462','07463','07465','07470','07474','07480','07481','07495','07005','07006','07009','07034','07035','07039','07045','07046','07050','07052','07054','07082','07012','07013','07014','07017','07021','07022','07028','07031','07032','07043','07044','07055','07057'];
+
+function checkZip() {
+  const zip = document.getElementById('zipInput').value.trim();
+  const result = document.getElementById('zipResult');
+  
+  if (zip.length !== 5 || !/^\d{5}$/.test(zip)) {
+    result.textContent = 'Please enter a valid 5-digit ZIP code';
+    result.className = 'zip-result no';
+    return;
+  }
+  
+  if (VALID_ZIPS.includes(zip)) {
+    result.textContent = '✓ Yes! We serve your area. Get a ballpark quote above.';
+    result.className = 'zip-result yes';
+  } else {
+    result.textContent = 'Sorry, we don\'t currently serve this ZIP code. Our service area is Morris, Passaic & Bergen County, NJ.';
+    result.className = 'zip-result no';
+  }
+}
+
+document.getElementById('zipInput').addEventListener('keypress', function(e) {
+  if (e.key === 'Enter') checkZip();
+});
+</script>
+
+</body>
+</html>
