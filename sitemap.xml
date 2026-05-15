@@ -4,7 +4,7 @@
   <!-- Main Landing Page -->
   <url>
     <loc>https://greatprecisionservices.com/</loc>
-    <lastmod>2026-05-07</lastmod>
+    <lastmod>2026-05-15</lastmod>
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
   </url>
@@ -12,8 +12,16 @@
   <!-- Fallen Sink Job Landing Page -->
   <url>
     <loc>https://greatprecisionservices.com/sink-fell-down/</loc>
-    <lastmod>2026-05-07</lastmod>
+    <lastmod>2026-05-15</lastmod>
     <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Client Reviews Page -->
+  <url>
+    <loc>https://greatprecisionservices.com/reviews/</loc>
+    <lastmod>2026-05-15</lastmod>
+    <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
 
@@ -21,7 +29,7 @@
   <!--
   <url>
     <loc>https://greatprecisionservices.com/triage/</loc>
-    <lastmod>2026-05-07</lastmod>
+    <lastmod>2026-05-15</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
