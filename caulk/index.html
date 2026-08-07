@@ -400,6 +400,37 @@
   .svc-hero,.two-track,.grout-callout,.materials,.qa-section,.pricing-section,.svc-gallery { padding:56px 20px; }
 }
 
+/* NOT THIS CALLOUT */
+.not-this-section { background:var(--white); padding:60px 40px; }
+.not-this-card { max-width:1000px; margin:0 auto; display:grid; grid-template-columns:340px 1fr; gap:40px; align-items:center; }
+.not-this-photo { position:relative; }
+.not-this-photo img { width:100%; display:block; border-radius:4px; box-shadow:0 4px 20px rgba(0,0,0,0.12); }
+.not-this-badge { position:absolute; top:-12px; left:-12px; background:#C0392B; color:#fff; font-weight:700; font-size:0.8rem; padding:8px 16px; border-radius:4px; box-shadow:0 3px 10px rgba(0,0,0,0.25); transform:rotate(-4deg); }
+.not-this-text h3 { font-family:"Playfair Display",serif; font-size:1.4rem; color:var(--navy); margin-bottom:14px; line-height:1.35; }
+.not-this-text p:not(.section-label) { color:var(--text-mid); font-size:0.98rem; line-height:1.8; }
+@media (max-width:760px) {
+  .not-this-card { grid-template-columns:1fr; }
+}
+
+/* OUTCOME GRID (prep x application) */
+.outcome-section { background:var(--gray); padding:80px 40px; }
+.outcome-intro { text-align:center; color:var(--text-mid); font-size:1rem; max-width:680px; margin:0 auto 44px; line-height:1.8; }
+.outcome-grid { max-width:900px; margin:0 auto; display:grid; grid-template-columns:auto 1fr 1fr; gap:2px; background:#DDD8CE; border-radius:4px; overflow:hidden; }
+.outcome-grid .oc-corner { background:var(--navy); }
+.outcome-grid .oc-head { background:var(--navy); color:var(--white); font-weight:700; font-size:0.85rem; text-align:center; padding:16px 12px; display:flex; align-items:center; justify-content:center; }
+.outcome-grid .oc-rowlabel { background:var(--navy); color:rgba(255,255,255,0.85); font-weight:700; font-size:0.82rem; text-align:center; padding:16px 10px; display:flex; align-items:center; justify-content:center; writing-mode:vertical-rl; text-orientation:mixed; }
+.outcome-grid .oc-cell { background:var(--white); padding:20px 18px; font-size:0.88rem; color:var(--text-mid); line-height:1.6; }
+.outcome-grid .oc-cell.best { background:rgba(74,124,89,0.08); }
+.outcome-grid .oc-cell.worst { background:rgba(192,57,43,0.07); }
+.outcome-grid .oc-tag { display:inline-block; font-size:0.7rem; font-weight:700; letter-spacing:0.05em; text-transform:uppercase; padding:2px 8px; border-radius:3px; margin-bottom:8px; }
+.oc-tag.best { background:#4A7C59; color:#fff; }
+.oc-tag.worst { background:#C0392B; color:#fff; }
+.oc-tag.mid { background:var(--gold-dark); color:#fff; }
+.outcome-footnote { text-align:center; color:var(--text-mid); font-size:0.88rem; max-width:680px; margin:28px auto 0; line-height:1.75; font-style:italic; }
+@media (max-width:640px) {
+  .outcome-grid { grid-template-columns:auto 1fr; }
+  .outcome-grid .oc-head:nth-child(3) { display:none; }
+}
 </style>
 </head>
 <body>
@@ -416,8 +447,8 @@
 <section class="svc-hero hero">
   <div class="svc-breadcrumb"><a href="/">GPPS Home</a> &nbsp;/&nbsp; Kitchen &amp; Bath Caulking</div>
   <div class="hero-eyebrow">Kitchen &amp; Bath Caulk Replacement</div>
-  <h1>Your Caulk Keeps Failing<br><em>Because Nothing Was Actually Removed Last Time</em></h1>
-  <p class="hero-sub">Most "recaulk" jobs are a new bead squeezed over the same trapped moisture, mold, and soap scum that caused the last one to fail. We remove everything down to the surface, clean what's underneath, and match the product to where it's going — so it actually holds.</p>
+  <h1>Tired of Caulk Jobs That Don't Last?<br><em>Or Ones That Look Sloppy From Day One?</em></h1>
+  <p class="hero-sub">Many shoddy caulk jobs are a new bead squeezed over the same trapped moisture, mold, and soap scum that caused the last one to fail. We remove everything down to the surface, clean the surface with alcohol as well, and use the proper high-quality caulk for the conditions it will be subjected to — so it actually holds and lasts.</p>
   <div class="hero-btns">
   <div style="display:flex;flex-direction:column;align-items:flex-start;gap:0">
     <div style="display:flex;gap:16px;flex-wrap:wrap;margin-bottom:12px">
@@ -448,10 +479,25 @@
   <div class="trust-item">🔒 1-Year Workmanship Warranty</div>
 </div>
 
+<!-- NOT THIS -->
+<section class="not-this-section">
+  <div class="not-this-card fade-up">
+    <div class="not-this-photo">
+      <img src="/images/caulk-sloppy-extreme.jpg" alt="Extreme example of sloppy, uneven caulk application smeared across tile and sink">
+      <span class="not-this-badge">✕ Not This</span>
+    </div>
+    <div class="not-this-text">
+      <p class="section-label" style="text-align:left">The Other Failure Mode</p>
+      <h3>It's not just about lasting years — some jobs don't even look right on day one</h3>
+      <p>Caulk that's smeared, uneven, or run in thick globs like this rarely got real prep either — sloppy execution and skipped prep tend to travel together. But even a caulk line that's technically sealed can still look like this if nobody bothered to tool a clean edge. We won't leave a bead looking like this on day one, let alone year one.</p>
+    </div>
+  </div>
+</section>
+
 <!-- PROBLEM -->
 <section class="problem">
   <h2>The 1-year recaulk cycle<br>isn't a caulk problem. <em>It's a prep problem.</em></h2>
-  <p>Search around and you'll find wildly different answers for how often caulk needs replacing — some say every year, some say five to ten. <strong>Both are true, for different jobs.</strong> The one-year cycle is what happens when old caulk gets scraped off (or just caulked over) with moisture, mold, and soap scum still trapped behind it. The five-to-ten-year cycle is what happens when the substrate is actually cleaned, dried, and treated before anything new goes on. Same tube of caulk. Completely different outcome.</p>
+  <p>Search around and you'll find wildly different answers for how often caulk needs replacing — some say every year, some say five to ten. <strong>Both are true, for different jobs.</strong> The one-year cycle is what happens when old caulk gets scraped off (or just caulked over) with moisture, mold, and soap scum still trapped behind it. A five-to-ten-year lifespan is possible when the surface is actually cleaned, dried, and treated before anything new goes on. Same tube of caulk. Completely different outcome.</p>
 </section>
 
 <!-- TWO TRACK -->
@@ -523,18 +569,39 @@
   </div>
 </section>
 
+<!-- OUTCOME GRID -->
+<section class="outcome-section">
+  <p class="section-label">What Actually Determines the Result</p>
+  <h2 class="section-title">Two things decide whether caulk holds up — and looks right</h2>
+  <p class="outcome-intro">It's not just about prep. How cleanly the bead itself is applied matters too — and the two aren't the same thing. Here's how they combine:</p>
+  <div class="outcome-grid fade-up">
+    <div class="oc-corner"></div>
+    <div class="oc-head">Applied Clean &amp; Straight</div>
+    <div class="oc-head">Sloppy / Smeared Application</div>
+
+    <div class="oc-rowlabel">Properly Prepped</div>
+    <div class="oc-cell best"><span class="oc-tag best">Best</span>Looks clean, seals correctly, and holds for years.</div>
+    <div class="oc-cell"><span class="oc-tag mid">Uneven</span>Prep was done right, but smeared or thick sections are still weak points prone to early failure even though the rest holds.</div>
+
+    <div class="oc-rowlabel">No Real Prep</div>
+    <div class="oc-cell"><span class="oc-tag mid">Fools You</span>Looks fine at first — moisture and mold trapped underneath cause it to fail within a year regardless of how neat the bead looks.</div>
+    <div class="oc-cell worst"><span class="oc-tag worst">Worst</span>Looks bad immediately and fails early. What we're called in to fix most often.</div>
+  </div>
+  <p class="outcome-footnote">Cheap, low-grade caulk makes any one of these four outcomes worse — it's a multiplier on top of prep and application, not a fix for either.</p>
+</section>
+
 <!-- GALLERY -->
 <section class="svc-gallery">
   <p class="section-label">Our Work</p>
   <h2 class="section-title">Before &amp; After</h2>
-  <p class="gallery-intro" style="text-align:center;color:var(--text-mid);max-width:640px;margin:0 auto 40px;line-height:1.75;">Full removal down to the substrate, then a clean, correctly-sealed bead — not a fresh line of caulk squeezed over the same problem.</p>
+  <p class="gallery-intro" style="text-align:center;color:var(--text-mid);max-width:640px;margin:0 auto 40px;line-height:1.75;">Full removal down to the surface, then a clean, correctly-sealed bead — not a fresh line of caulk squeezed over the same problem.</p>
   <div class="svc-gallery-grid">
     <div class="svc-gallery-item fade-up">
       <img src="/images/caulk-removal-before.png" alt="Old caulk and grout removed at kitchen counter corner, exposing trapped moisture underneath">
       <div class="svc-gallery-cap">Old caulk &amp; grout removal — before</div>
     </div>
     <div class="svc-gallery-item fade-up">
-      <img src="/images/caulk-corner-after.png" alt="Finished silicone caulk corner seal after full removal and substrate treatment">
+      <img src="/images/caulk-corner-after.png" alt="Finished silicone caulk corner seal after full removal and surface treatment">
       <div class="svc-gallery-cap">Corner seal — finished</div>
     </div>
     <div class="svc-gallery-item fade-up">
@@ -687,7 +754,7 @@
     <a href="/privacy" style="color:var(--text-light);text-decoration:none">Privacy Policy</a>
   </p>
   <p class="footer-legal">Licensed &amp; Insured &nbsp;·&nbsp; © 2026 Great Precision Property Services &nbsp;·&nbsp; greatprecisionservices.com</p>
-  <p style="text-align:right;font-size:0.7rem;color:var(--text-light);margin:8px 16px 0 0;opacity:0.6;">V1.3</p>
+  <p style="text-align:right;font-size:0.7rem;color:var(--text-light);margin:8px 16px 0 0;opacity:0.6;">V1.4</p>
 </footer>
 
 <script>
