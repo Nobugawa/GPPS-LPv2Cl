@@ -406,6 +406,7 @@
 .not-this-photo { position:relative; }
 .not-this-photo img { width:100%; display:block; border-radius:4px; box-shadow:0 4px 20px rgba(0,0,0,0.12); }
 .not-this-badge { position:absolute; top:-12px; left:-12px; background:#C0392B; color:#fff; font-weight:700; font-size:0.8rem; padding:8px 16px; border-radius:4px; box-shadow:0 3px 10px rgba(0,0,0,0.25); transform:rotate(-4deg); }
+.not-this-caption { font-size:0.82rem; color:var(--text-light); font-style:italic; line-height:1.6; margin-top:10px; text-align:center; }
 .not-this-text h3 { font-family:"Playfair Display",serif; font-size:1.4rem; color:var(--navy); margin-bottom:14px; line-height:1.35; }
 .not-this-text p:not(.section-label) { color:var(--text-mid); font-size:0.98rem; line-height:1.8; }
 @media (max-width:760px) {
@@ -419,10 +420,11 @@
 .outcome-grid .oc-corner { background:var(--navy); }
 .outcome-grid .oc-head { background:var(--navy); color:var(--white); font-weight:700; font-size:0.85rem; text-align:center; padding:16px 12px; display:flex; align-items:center; justify-content:center; }
 .outcome-grid .oc-rowlabel { background:var(--navy); color:rgba(255,255,255,0.85); font-weight:700; font-size:0.82rem; text-align:center; padding:16px 10px; display:flex; align-items:center; justify-content:center; writing-mode:vertical-rl; text-orientation:mixed; }
-.outcome-grid .oc-cell { background:var(--white); padding:20px 18px; font-size:0.88rem; color:var(--text-mid); line-height:1.6; }
+.outcome-grid .oc-cell { background:var(--white); padding:22px 18px; font-size:0.88rem; color:var(--text-mid); line-height:1.6; text-align:center; }
 .outcome-grid .oc-cell.best { background:rgba(74,124,89,0.08); }
 .outcome-grid .oc-cell.worst { background:rgba(192,57,43,0.07); }
-.outcome-grid .oc-tag { display:inline-block; font-size:0.7rem; font-weight:700; letter-spacing:0.05em; text-transform:uppercase; padding:2px 8px; border-radius:3px; margin-bottom:8px; }
+.outcome-grid .oc-tag { display:block; width:fit-content; margin:0 auto 12px; font-size:0.7rem; font-weight:700; letter-spacing:0.05em; text-transform:uppercase; padding:4px 12px; border-radius:3px; }
+.outcome-grid .oc-cell p { margin:0; text-align:left; }
 .oc-tag.best { background:#4A7C59; color:#fff; }
 .oc-tag.worst { background:#C0392B; color:#fff; }
 .oc-tag.mid { background:var(--gold-dark); color:#fff; }
@@ -485,6 +487,7 @@
     <div class="not-this-photo">
       <img src="/images/caulk-sloppy-extreme.jpg" alt="Extreme example of sloppy, uneven caulk application smeared across tile and sink">
       <span class="not-this-badge">✕ Not This</span>
+      <p class="not-this-caption">This is an example of sloppy uneven caulk application. Yes, we know it is extreme, and yours is not likely this bad, but you get the idea.</p>
     </div>
     <div class="not-this-text">
       <p class="section-label" style="text-align:left">The Other Failure Mode</p>
@@ -580,12 +583,12 @@
     <div class="oc-head">Sloppy / Smeared Application</div>
 
     <div class="oc-rowlabel">Properly Prepped</div>
-    <div class="oc-cell best"><span class="oc-tag best">Best</span>Looks clean, seals correctly, and holds for years.</div>
-    <div class="oc-cell"><span class="oc-tag mid">Uneven</span>Prep was done right, but smeared or thick sections are still weak points prone to early failure even though the rest holds.</div>
+    <div class="oc-cell best"><span class="oc-tag best">Best</span><p>Looks clean, seals correctly, and holds for years.</p></div>
+    <div class="oc-cell"><span class="oc-tag mid">Uneven</span><p>Prep was done right, but smeared or thick sections are still weak points prone to early failure even though the rest holds.</p></div>
 
     <div class="oc-rowlabel">No Real Prep</div>
-    <div class="oc-cell"><span class="oc-tag mid">Fools You</span>Looks fine at first — moisture and mold trapped underneath cause it to fail within a year regardless of how neat the bead looks.</div>
-    <div class="oc-cell worst"><span class="oc-tag worst">Worst</span>Looks bad immediately and fails early. What we're called in to fix most often.</div>
+    <div class="oc-cell"><span class="oc-tag mid">Fools You</span><p>Looks fine at first — moisture and mold trapped underneath cause it to fail within a year regardless of how neat the bead looks.</p></div>
+    <div class="oc-cell worst"><span class="oc-tag worst">Worst</span><p>Looks bad immediately and fails early. What we're called in to fix most often.</p></div>
   </div>
   <p class="outcome-footnote">Cheap, low-grade caulk makes any one of these four outcomes worse — it's a multiplier on top of prep and application, not a fix for either.</p>
 </section>
@@ -750,7 +753,7 @@
     <a href="/privacy" style="color:var(--text-light);text-decoration:none">Privacy Policy</a>
   </p>
   <p class="footer-legal">Licensed &amp; Insured &nbsp;·&nbsp; © 2026 Great Precision Property Services &nbsp;·&nbsp; greatprecisionservices.com</p>
-  <p style="text-align:right;font-size:0.7rem;color:var(--text-light);margin:8px 16px 0 0;opacity:0.6;">V1.5</p>
+  <p style="text-align:right;font-size:0.7rem;color:var(--text-light);margin:8px 16px 0 0;opacity:0.6;">V1.6</p>
 </footer>
 
 <script>
