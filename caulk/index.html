@@ -404,7 +404,7 @@
 .not-this-section { background:var(--white); padding:60px 40px; }
 .not-this-card { max-width:1000px; margin:0 auto; display:grid; grid-template-columns:340px 1fr; gap:40px; align-items:center; }
 .not-this-photo { position:relative; }
-.not-this-photo img { width:100%; display:block; border-radius:4px; box-shadow:0 4px 20px rgba(0,0,0,0.12); }
+.not-this-photo img { width:100%; display:block; border-radius:4px; box-shadow:0 4px 20px rgba(0,0,0,0.12); cursor:zoom-in; }
 .not-this-badge { position:absolute; top:-12px; left:-12px; background:#C0392B; color:#fff; font-weight:700; font-size:0.8rem; padding:8px 16px; border-radius:4px; box-shadow:0 3px 10px rgba(0,0,0,0.25); transform:rotate(-4deg); }
 .not-this-caption { font-size:0.82rem; color:var(--text-light); font-style:italic; line-height:1.6; margin-top:10px; text-align:center; }
 .not-this-text h3 { font-family:"Playfair Display",serif; font-size:1.4rem; color:var(--navy); margin-bottom:14px; line-height:1.35; }
@@ -416,7 +416,7 @@
 /* MOLD EXPLAINER */
 .mold-explainer-section { background:var(--gray); padding:60px 40px; }
 .mold-explainer-card { max-width:1000px; margin:0 auto; display:grid; grid-template-columns:300px 1fr; gap:40px; align-items:center; }
-.mold-explainer-photo img { width:100%; display:block; border-radius:4px; box-shadow:0 4px 20px rgba(0,0,0,0.12); }
+.mold-explainer-photo img { width:100%; display:block; border-radius:4px; box-shadow:0 4px 20px rgba(0,0,0,0.12); cursor:zoom-in; }
 .mold-explainer-text h3 { font-family:"Playfair Display",serif; font-size:1.4rem; color:var(--navy); margin-bottom:14px; line-height:1.35; }
 .mold-explainer-text p:not(.section-label) { color:var(--text-mid); font-size:0.98rem; line-height:1.8; margin-bottom:14px; }
 @media (max-width:760px) {
@@ -488,8 +488,8 @@
 <!-- NOT THIS -->
 <section class="not-this-section">
   <div class="not-this-card fade-up">
-    <div class="not-this-photo">
-      <img src="/caulk/images/caulk-sloppy-extreme.jpg" alt="Extreme example of sloppy, uneven caulk application smeared across tile and sink">
+    <div class="not-this-photo gallery-item-wrap">
+      <img src="/caulk/images/caulk-sloppy-extreme.jpg" alt="Extreme example of sloppy, uneven caulk application smeared across tile and sink" onclick="openLightbox(0)">
       <span class="not-this-badge">✕ Not This</span>
       <p class="not-this-caption">This is an example of sloppy uneven caulk application. Yes, we know it is extreme, and yours is not likely this bad, but you get the idea.</p>
     </div>
@@ -510,8 +510,8 @@
 <!-- MOLD EXPLAINER -->
 <section class="mold-explainer-section">
   <div class="mold-explainer-card fade-up">
-    <div class="mold-explainer-photo">
-      <img src="/caulk/images/caulk-mold-corner.jpg" alt="Black mold growing at the edge of a caulk line in a shower corner">
+    <div class="mold-explainer-photo gallery-item-wrap">
+      <img src="/caulk/images/caulk-mold-corner.jpg" alt="Black mold growing at the edge of a caulk line in a shower corner" onclick="openLightbox(1)">
     </div>
     <div class="mold-explainer-text">
       <p class="section-label" style="text-align:left">Where the Mold Actually Comes From</p>
@@ -628,15 +628,15 @@
   <p class="gallery-intro" style="text-align:center;color:var(--text-mid);max-width:640px;margin:0 auto 40px;line-height:1.75;">Full removal down to the surface, then a clean, correctly-sealed bead — not a fresh line of caulk squeezed over the same problem.</p>
   <div class="svc-gallery-grid">
     <div class="svc-gallery-item gallery-item-wrap fade-up">
-      <img src="/caulk/images/caulk-removal-before.png" alt="Old caulk and grout removed at kitchen counter corner, exposing trapped moisture underneath" onclick="openLightbox(0)">
+      <img src="/caulk/images/caulk-removal-before.png" alt="Old caulk and grout removed at kitchen counter corner, exposing trapped moisture underneath" onclick="openLightbox(2)">
       <div class="svc-gallery-cap">Old caulk &amp; grout removal — before</div>
     </div>
     <div class="svc-gallery-item gallery-item-wrap fade-up">
-      <img src="/caulk/images/caulk-corner-after.png" alt="Finished silicone caulk corner seal after full removal and surface treatment" onclick="openLightbox(1)">
+      <img src="/caulk/images/caulk-corner-after.png" alt="Finished silicone caulk corner seal after full removal and surface treatment" onclick="openLightbox(3)">
       <div class="svc-gallery-cap">Corner seal — finished</div>
     </div>
     <div class="svc-gallery-item gallery-item-wrap fade-up">
-      <img src="/caulk/images/caulk-middle-after.png" alt="Finished clean caulk line along kitchen countertop and backsplash" onclick="openLightbox(2)">
+      <img src="/caulk/images/caulk-middle-after.png" alt="Finished clean caulk line along kitchen countertop and backsplash" onclick="openLightbox(4)">
       <div class="svc-gallery-cap">Countertop seam — finished</div>
     </div>
   </div>
@@ -770,18 +770,18 @@
   </div>
   <hr class="footer-divider">
   <p class="footer-links" style="text-align:center;font-size:.82rem;margin-bottom:10px">
-    <a href="/caulk/" style="color:var(--gold-dark);text-decoration:none;font-weight:600">Kitchen Caulking</a>
+    <a href="/caulk/" target="_blank" rel="noopener noreferrer" style="color:var(--gold-dark);text-decoration:none;font-weight:600">Kitchen Caulking</a>
     &nbsp;·&nbsp;
-    <a href="/sink-fell-down" style="color:var(--text-light);text-decoration:none">Sink Repair</a>
+    <a href="/sink-fell-down" target="_blank" rel="noopener noreferrer" style="color:var(--text-light);text-decoration:none">Sink Repair</a>
     &nbsp;·&nbsp;
-    <a href="/pressure-treated-lumber-rot" style="color:var(--text-light);text-decoration:none">Why Lumber Rots</a>
+    <a href="/pressure-treated-lumber-rot" target="_blank" rel="noopener noreferrer" style="color:var(--text-light);text-decoration:none">Why Lumber Rots</a>
     &nbsp;·&nbsp;
-    <a href="/reviews" style="color:var(--text-light);text-decoration:none">Reviews</a>
+    <a href="/reviews" target="_blank" rel="noopener noreferrer" style="color:var(--text-light);text-decoration:none">Reviews</a>
     &nbsp;·&nbsp;
-    <a href="/privacy" style="color:var(--text-light);text-decoration:none">Privacy Policy</a>
+    <a href="/privacy" target="_blank" rel="noopener noreferrer" style="color:var(--text-light);text-decoration:none">Privacy Policy</a>
   </p>
   <p class="footer-legal">Licensed &amp; Insured &nbsp;·&nbsp; © 2026 Great Precision Property Services &nbsp;·&nbsp; greatprecisionservices.com</p>
-  <p style="text-align:right;font-size:0.7rem;color:var(--text-light);margin:8px 16px 0 0;opacity:0.6;">V1.9</p>
+  <p style="text-align:right;font-size:0.7rem;color:var(--text-light);margin:8px 16px 0 0;opacity:0.6;">V2.1</p>
 </footer>
 
 <script>
