@@ -413,26 +413,30 @@
   .not-this-card { grid-template-columns:1fr; }
 }
 
+/* MOLD EXPLAINER */
+.mold-explainer-section { background:var(--gray); padding:60px 40px; }
+.mold-explainer-card { max-width:1000px; margin:0 auto; display:grid; grid-template-columns:300px 1fr; gap:40px; align-items:center; }
+.mold-explainer-photo img { width:100%; display:block; border-radius:4px; box-shadow:0 4px 20px rgba(0,0,0,0.12); }
+.mold-explainer-text h3 { font-family:"Playfair Display",serif; font-size:1.4rem; color:var(--navy); margin-bottom:14px; line-height:1.35; }
+.mold-explainer-text p:not(.section-label) { color:var(--text-mid); font-size:0.98rem; line-height:1.8; margin-bottom:14px; }
+@media (max-width:760px) {
+  .mold-explainer-card { grid-template-columns:1fr; }
+}
+
 /* OUTCOME GRID (prep x application) */
 .outcome-section { background:var(--gray); padding:80px 40px; }
 .outcome-intro { text-align:center; color:var(--text-mid); font-size:1rem; max-width:680px; margin:0 auto 44px; line-height:1.8; }
-.outcome-grid { max-width:900px; margin:0 auto; display:grid; grid-template-columns:auto 1fr 1fr; gap:2px; background:#DDD8CE; border-radius:4px; overflow:hidden; }
-.outcome-grid .oc-corner { background:var(--navy); }
-.outcome-grid .oc-head { background:var(--navy); color:var(--white); font-weight:700; font-size:0.85rem; text-align:center; padding:16px 12px; display:flex; align-items:center; justify-content:center; }
-.outcome-grid .oc-rowlabel { background:var(--navy); color:rgba(255,255,255,0.85); font-weight:700; font-size:0.82rem; text-align:center; padding:16px 10px; display:flex; align-items:center; justify-content:center; writing-mode:vertical-rl; text-orientation:mixed; }
-.outcome-grid .oc-cell { background:var(--white); padding:22px 18px; font-size:0.88rem; color:var(--text-mid); line-height:1.6; text-align:center; }
-.outcome-grid .oc-cell.best { background:rgba(74,124,89,0.08); }
-.outcome-grid .oc-cell.worst { background:rgba(192,57,43,0.07); }
-.outcome-grid .oc-tag { display:block; width:fit-content; margin:0 auto 12px; font-size:0.7rem; font-weight:700; letter-spacing:0.05em; text-transform:uppercase; padding:4px 12px; border-radius:3px; }
-.outcome-grid .oc-cell p { margin:0; text-align:left; }
+.outcome-cards { max-width:980px; margin:0 auto; display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:22px; }
+.outcome-card { background:var(--white); padding:26px 24px; border-radius:4px; box-shadow:0 2px 12px rgba(0,0,0,0.06); border-top:4px solid var(--gold-dark); text-align:left; }
+.outcome-card.best { border-top-color:#4A7C59; background:rgba(74,124,89,0.06); }
+.outcome-card.worst { border-top-color:#C0392B; background:rgba(192,57,43,0.05); }
+.oc-conditions { font-size:0.72rem; font-weight:700; letter-spacing:0.05em; text-transform:uppercase; color:var(--text-light); margin-bottom:12px; line-height:1.5; }
+.oc-tag { display:inline-block; font-size:0.7rem; font-weight:700; letter-spacing:0.05em; text-transform:uppercase; padding:4px 12px; border-radius:3px; margin-bottom:12px; }
 .oc-tag.best { background:#4A7C59; color:#fff; }
 .oc-tag.worst { background:#C0392B; color:#fff; }
 .oc-tag.mid { background:var(--gold-dark); color:#fff; }
+.outcome-card p { margin:0; color:var(--text-mid); font-size:0.92rem; line-height:1.7; }
 .outcome-footnote { text-align:center; color:var(--text-mid); font-size:0.88rem; max-width:680px; margin:28px auto 0; line-height:1.75; font-style:italic; }
-@media (max-width:640px) {
-  .outcome-grid { grid-template-columns:auto 1fr; }
-  .outcome-grid .oc-head:nth-child(3) { display:none; }
-}
 </style>
 </head>
 <body>
@@ -501,6 +505,21 @@
 <section class="problem">
   <h2>The 1-year recaulk cycle<br>isn't a caulk problem. <em>It's a prep problem.</em></h2>
   <p>Search around and you'll find wildly different answers for how often caulk needs replacing — some say every year, some say five to ten. <strong>Both are true, for different jobs.</strong> The one-year cycle is what happens when old caulk gets scraped off (or just caulked over) with moisture, mold, and soap scum still trapped behind it. A five-to-ten-year lifespan is possible when the surface is actually cleaned, dried, and treated before anything new goes on. Same tube of caulk. Completely different outcome.</p>
+</section>
+
+<!-- MOLD EXPLAINER -->
+<section class="mold-explainer-section">
+  <div class="mold-explainer-card fade-up">
+    <div class="mold-explainer-photo">
+      <img src="/images/caulk-mold-corner.jpg" alt="Black mold growing at the edge of a caulk line in a shower corner">
+    </div>
+    <div class="mold-explainer-text">
+      <p class="section-label" style="text-align:left">Where the Mold Actually Comes From</p>
+      <h3>It's not on top of the caulk — it's underneath it</h3>
+      <p>Smeared or too-thin caulk sections are the weak point. Instead of forming a solid, flexible seal, thin caulk is prone to lifting slightly at the edge — and that lifted edge is exactly where mold gets its foothold. Once it takes hold, it has room to grow, which is when you see that telltale black line forming. What you're actually looking at in most moldy corners isn't mold sitting on the caulk — it's mold growing in the gap between the caulk and the tile, hidden from view.</p>
+      <p>Combine that with moisture and mold already trapped underneath from inadequate cleaning during the last application, and you get premature failure — often within a year — no matter how neat the bead looked on day one.</p>
+    </div>
+  </div>
 </section>
 
 <!-- TWO TRACK -->
@@ -577,18 +596,27 @@
   <p class="section-label">What Actually Determines the Result</p>
   <h2 class="section-title">Two things decide whether caulk holds up — and looks right</h2>
   <p class="outcome-intro">It's not just about prep. How cleanly the bead itself is applied matters too — and the two aren't the same thing. Here's how they combine:</p>
-  <div class="outcome-grid fade-up">
-    <div class="oc-corner"></div>
-    <div class="oc-head">Applied Clean &amp; Straight</div>
-    <div class="oc-head">Sloppy / Smeared Application</div>
-
-    <div class="oc-rowlabel">Properly Prepped</div>
-    <div class="oc-cell best"><span class="oc-tag best">Best</span><p>Looks clean, seals correctly, and holds for years.</p></div>
-    <div class="oc-cell"><span class="oc-tag mid">Uneven</span><p>Prep was done right, but smeared or thick sections are still weak points prone to early failure even though the rest holds.</p></div>
-
-    <div class="oc-rowlabel">No Real Prep</div>
-    <div class="oc-cell"><span class="oc-tag mid">Fools You</span><p>Looks fine at first — moisture and mold trapped underneath cause it to fail within a year regardless of how neat the bead looks.</p></div>
-    <div class="oc-cell worst"><span class="oc-tag worst">Worst</span><p>Looks bad immediately and fails early. What we're called in to fix most often.</p></div>
+  <div class="outcome-cards fade-up">
+    <div class="outcome-card best">
+      <div class="oc-conditions">Properly Prepped + Applied Clean &amp; Straight</div>
+      <span class="oc-tag best">Best</span>
+      <p>Looks clean, seals correctly, and holds for years.</p>
+    </div>
+    <div class="outcome-card">
+      <div class="oc-conditions">Properly Prepped + Sloppy / Smeared Application</div>
+      <span class="oc-tag mid">Uneven</span>
+      <p>Prep was done right, but smeared or thin sections are still weak points prone to mold at the edges. More on why below.</p>
+    </div>
+    <div class="outcome-card">
+      <div class="oc-conditions">No Real Prep + Applied Clean &amp; Straight</div>
+      <span class="oc-tag mid">Fools You</span>
+      <p>Looks fine at first — however, moisture and mold trapped underneath, and poor adhesion from inadequate surface cleaning, cause it to fail prematurely, often within a year, regardless of how neat the bead initially looks.</p>
+    </div>
+    <div class="outcome-card worst">
+      <div class="oc-conditions">No Real Prep + Sloppy / Smeared Application</div>
+      <span class="oc-tag worst">Worst</span>
+      <p>Looks bad immediately and fails early.</p>
+    </div>
   </div>
   <p class="outcome-footnote">Cheap, low-grade caulk makes any one of these four outcomes worse — it's a multiplier on top of prep and application, not a fix for either.</p>
 </section>
@@ -665,22 +693,22 @@
   <div class="price-card fade-up">
     <div class="price-row">
       <div class="price-row-label">New construction / fresh install<span>Up to 20 linear ft, no removal needed</span></div>
-      <div class="price-row-value">Flat rate</div>
+      <div class="price-row-value">$200</div>
     </div>
     <div class="price-row">
       <div class="price-row-label">Lived-in recaulk — base<span>Up to 20 linear ft, standard removal</span></div>
-      <div class="price-row-value">$275–$300</div>
+      <div class="price-row-value">Starting from $250</div>
     </div>
     <div class="price-row">
       <div class="price-row-label">Additional footage<span>Beyond 20 linear ft</span></div>
       <div class="price-row-value">$8–$10 / ft</div>
     </div>
     <div class="price-row">
-      <div class="price-row-label">Heavy removal surcharge<span>Thick old acrylic, extensive mold</span></div>
-      <div class="price-row-value">+$50–$75</div>
+      <div class="price-row-label">Heavy removal surcharge<span>Thick old acrylic, extensive mold, grout removal</span></div>
+      <div class="price-row-value">Starting from $75</div>
     </div>
   </div>
-  <p class="price-footnote" style="max-width:700px;margin-left:auto;margin-right:auto;text-align:center;">*New construction pricing shown here is a placeholder pending your confirmation — flag this before publishing. Every quote gets a firm number before we start; no open-ended ranges.</p>
+  <p class="price-footnote" style="max-width:700px;margin-left:auto;margin-right:auto;text-align:center;">Every quote gets a firm number before we start; no open-ended ranges.</p>
 </section>
 
 <!-- NOT THE RIGHT FIT -->
@@ -753,7 +781,7 @@
     <a href="/privacy" style="color:var(--text-light);text-decoration:none">Privacy Policy</a>
   </p>
   <p class="footer-legal">Licensed &amp; Insured &nbsp;·&nbsp; © 2026 Great Precision Property Services &nbsp;·&nbsp; greatprecisionservices.com</p>
-  <p style="text-align:right;font-size:0.7rem;color:var(--text-light);margin:8px 16px 0 0;opacity:0.6;">V1.6</p>
+  <p style="text-align:right;font-size:0.7rem;color:var(--text-light);margin:8px 16px 0 0;opacity:0.6;">V1.7</p>
 </footer>
 
 <script>
