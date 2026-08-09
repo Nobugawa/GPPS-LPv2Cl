@@ -426,16 +426,27 @@
 /* OUTCOME GRID (prep x application) */
 .outcome-section { background:var(--gray); padding:80px 40px; }
 .outcome-intro { text-align:center; color:var(--text-mid); font-size:1rem; max-width:680px; margin:0 auto 44px; line-height:1.8; }
-.outcome-cards { max-width:980px; margin:0 auto; display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:22px; }
-.outcome-card { background:var(--white); padding:26px 24px; border-radius:4px; box-shadow:0 2px 12px rgba(0,0,0,0.06); border-top:4px solid var(--gold-dark); text-align:left; }
-.outcome-card.best { border-top-color:#4A7C59; background:rgba(74,124,89,0.06); }
-.outcome-card.worst { border-top-color:#C0392B; background:rgba(192,57,43,0.05); }
-.oc-conditions { font-size:0.72rem; font-weight:700; letter-spacing:0.05em; text-transform:uppercase; color:var(--text-light); margin-bottom:12px; line-height:1.5; }
-.oc-tag { display:inline-block; font-size:0.7rem; font-weight:700; letter-spacing:0.05em; text-transform:uppercase; padding:4px 12px; border-radius:3px; margin-bottom:12px; }
-.oc-tag.best { background:#4A7C59; color:#fff; }
-.oc-tag.worst { background:#C0392B; color:#fff; }
-.oc-tag.mid { background:var(--gold-dark); color:#fff; }
-.outcome-card p { margin:0; color:var(--text-mid); font-size:0.92rem; line-height:1.7; }
+.outcome-table { max-width:900px; margin:0 auto; display:grid; grid-template-columns:150px 1fr 1fr; gap:3px; background:#DDD8CE; }
+.ot-corner { background:var(--navy); }
+.ot-colhead { background:var(--navy); color:var(--white); font-weight:700; font-size:0.85rem; text-align:center; padding:16px 12px; display:flex; align-items:center; justify-content:center; line-height:1.4; }
+.ot-rowhead { background:var(--navy); color:rgba(255,255,255,0.9); font-weight:700; font-size:0.85rem; text-align:center; padding:16px 10px; display:flex; align-items:center; justify-content:center; line-height:1.4; }
+.ot-cell { background:var(--white); padding:22px 20px; text-align:left; }
+.ot-cell.best { background:rgba(74,124,89,0.07); }
+.ot-cell.worst { background:rgba(192,57,43,0.06); }
+.ot-mobile-label { display:none; }
+.ot-tag { display:inline-block; font-size:0.7rem; font-weight:700; letter-spacing:0.05em; text-transform:uppercase; padding:4px 12px; border-radius:3px; margin-bottom:12px; }
+.ot-tag.best { background:#4A7C59; color:#fff; }
+.ot-tag.worst { background:#C0392B; color:#fff; }
+.ot-tag.mid { background:var(--gold-dark); color:#fff; }
+.ot-cell p { margin:0; color:var(--text-mid); font-size:0.92rem; line-height:1.7; }
+@media (max-width:700px) {
+  .outcome-table { grid-template-columns:1fr; gap:16px; background:transparent; }
+  .ot-corner, .ot-colhead, .ot-rowhead { display:none; }
+  .ot-cell { border-radius:4px; box-shadow:0 2px 12px rgba(0,0,0,0.06); border-top:4px solid var(--gold-dark); }
+  .ot-cell.best { border-top-color:#4A7C59; }
+  .ot-cell.worst { border-top-color:#C0392B; }
+  .ot-mobile-label { display:block; font-size:0.72rem; font-weight:700; letter-spacing:0.05em; text-transform:uppercase; color:var(--text-light); margin-bottom:12px; line-height:1.5; }
+}
 .outcome-footnote { text-align:center; color:var(--text-mid); font-size:0.88rem; max-width:680px; margin:28px auto 0; line-height:1.75; font-style:italic; }
 </style>
 </head>
@@ -596,25 +607,32 @@
   <p class="section-label">What Actually Determines the Result</p>
   <h2 class="section-title">Two things decide whether caulk holds up — and looks right</h2>
   <p class="outcome-intro">It's not just about prep. How cleanly the bead itself is applied matters too — and the two aren't the same thing. Here's how they combine:</p>
-  <div class="outcome-cards fade-up">
-    <div class="outcome-card best">
-      <div class="oc-conditions">Properly Prepped + Applied Clean &amp; Straight</div>
-      <span class="oc-tag best">Best</span>
+  <div class="outcome-table fade-up">
+    <div class="ot-corner"></div>
+    <div class="ot-colhead">Applied Clean &amp; Straight</div>
+    <div class="ot-colhead">Sloppy / Smeared Application</div>
+
+    <div class="ot-rowhead">Properly<br>Prepped</div>
+    <div class="ot-cell best">
+      <span class="ot-mobile-label">Properly Prepped + Applied Clean &amp; Straight</span>
+      <span class="ot-tag best">Best</span>
       <p>Looks clean, seals correctly, and holds for years.</p>
     </div>
-    <div class="outcome-card">
-      <div class="oc-conditions">Properly Prepped + Sloppy / Smeared Application</div>
-      <span class="oc-tag mid">Uneven</span>
+    <div class="ot-cell">
+      <span class="ot-mobile-label">Properly Prepped + Sloppy / Smeared Application</span>
+      <span class="ot-tag mid">Uneven</span>
       <p>Prep was done right, but smeared or thin sections are still weak points prone to mold at the edges. More on why below.</p>
     </div>
-    <div class="outcome-card">
-      <div class="oc-conditions">No Real Prep + Applied Clean &amp; Straight</div>
-      <span class="oc-tag mid">Fools You</span>
+
+    <div class="ot-rowhead">No Real<br>Prep</div>
+    <div class="ot-cell">
+      <span class="ot-mobile-label">No Real Prep + Applied Clean &amp; Straight</span>
+      <span class="ot-tag mid">Fools You</span>
       <p>Looks fine at first — however, moisture and mold trapped underneath, and poor adhesion from inadequate surface cleaning, cause it to fail prematurely, often within a year, regardless of how neat the bead initially looks.</p>
     </div>
-    <div class="outcome-card worst">
-      <div class="oc-conditions">No Real Prep + Sloppy / Smeared Application</div>
-      <span class="oc-tag worst">Worst</span>
+    <div class="ot-cell worst">
+      <span class="ot-mobile-label">No Real Prep + Sloppy / Smeared Application</span>
+      <span class="ot-tag worst">Worst</span>
       <p>Looks bad immediately and fails early.</p>
     </div>
   </div>
@@ -708,7 +726,7 @@
       <div class="price-row-value">Starting from $75</div>
     </div>
   </div>
-  <p class="price-footnote" style="max-width:700px;margin-left:auto;margin-right:auto;text-align:center;">Every quote gets a firm number before we start; no open-ended ranges.</p>
+  <p class="price-footnote" style="max-width:700px;margin-left:auto;margin-right:auto;text-align:center;">Every quote gets a firm number before we start — no open-ended ranges. In the rare case that removing old caulk or grout uncovers hidden water damage or a loose tile bond underneath, we'll stop, show you exactly what we found, and give you a firm number for that additional work before touching anything further.</p>
 </section>
 
 <!-- NOT THE RIGHT FIT -->
@@ -781,7 +799,7 @@
     <a href="/privacy" target="_blank" rel="noopener noreferrer" style="color:var(--text-light);text-decoration:none">Privacy Policy</a>
   </p>
   <p class="footer-legal">Licensed &amp; Insured &nbsp;·&nbsp; © 2026 Great Precision Property Services &nbsp;·&nbsp; greatprecisionservices.com</p>
-  <p style="text-align:right;font-size:0.7rem;color:var(--text-light);margin:8px 16px 0 0;opacity:0.6;">V2.1</p>
+  <p style="text-align:right;font-size:0.7rem;color:var(--text-light);margin:8px 16px 0 0;opacity:0.6;">V2.2</p>
 </footer>
 
 <script>
