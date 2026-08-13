@@ -453,6 +453,33 @@
   .ot-cell p { font-size:0.7rem; }
 }
 .outcome-footnote { text-align:center; color:var(--text-mid); font-size:0.88rem; max-width:680px; margin:28px auto 0; line-height:1.75; font-style:italic; }
+/* QUOTE FORM */
+.quote-form-section { background:var(--white); border-radius:12px; padding:44px 40px; max-width:640px; margin:0 auto; box-shadow:0 4px 24px rgba(0,0,0,0.08); border-top:4px solid var(--gold); text-align:left; }
+.quote-form-section h3 { font-family:"Playfair Display",serif; font-size:1.3rem; color:var(--navy); margin-bottom:6px; }
+.quote-form-section .qf-sub { color:var(--text-mid); font-size:0.92rem; margin-bottom:24px; }
+.qf-row { margin-bottom:16px; }
+.qf-row label { display:block; font-size:0.82rem; font-weight:700; color:var(--navy); margin-bottom:6px; }
+.qf-row input[type=text], .qf-row input[type=tel], .qf-row input[type=email], .qf-row textarea {
+  width:100%; padding:12px 14px; border:1px solid #D8D3C8; border-radius:6px; font-family:"DM Sans",sans-serif; font-size:0.95rem; color:var(--navy); background:var(--off-white);
+}
+.qf-row textarea { resize:vertical; min-height:70px; }
+.qf-row input:focus, .qf-row textarea:focus { outline:none; border-color:var(--gold-dark); background:var(--white); }
+.qf-consent { display:flex; gap:10px; align-items:flex-start; margin:22px 0 24px; padding:16px; background:var(--off-white); border-radius:6px; }
+.qf-consent input[type=checkbox] { margin-top:3px; width:16px; height:16px; flex-shrink:0; accent-color:var(--gold-dark); }
+.qf-consent label { font-size:0.78rem; color:var(--text-mid); line-height:1.6; }
+.qf-consent label a { color:var(--gold-dark); font-weight:600; }
+.qf-submit-row { display:flex; align-items:center; gap:16px; flex-wrap:wrap; }
+.qf-submit-btn { background:var(--gold); color:var(--navy); border:none; font-weight:700; font-size:0.95rem; padding:14px 32px; border-radius:6px; cursor:pointer; font-family:"DM Sans",sans-serif; }
+.qf-submit-btn:hover { background:var(--gold-dark); }
+.qf-or { color:var(--text-light); font-size:0.85rem; }
+.qf-call-link { color:var(--navy); font-weight:700; text-decoration:none; font-size:0.92rem; }
+.qf-honeypot { position:absolute; left:-9999px; opacity:0; }
+.qf-success { display:none; text-align:center; padding:20px; }
+.qf-success h3 { color:var(--navy); font-family:"Playfair Display",serif; margin-bottom:8px; }
+.qf-success p { color:var(--text-mid); }
+@media (max-width:640px) {
+  .quote-form-section { padding:32px 24px; }
+}
 </style>
 </head>
 <body>
@@ -462,7 +489,7 @@
   <img src="/images/logo-main.png" alt="Great Precision Property Services">
   <div class="header-cta">
     <a href="tel:9732213464" class="header-phone">📞 (973) 221-3464</a>
-    <a href="https://tally.so/r/yPqXvd" class="btn-header" target="_blank">Get a Ballpark</a>
+    <a href="#quote-form-anchor" class="btn-header">Get a Ballpark</a>
   </div>
 </header>
 <!-- HERO -->
@@ -474,10 +501,10 @@
   <div class="hero-btns">
   <div style="display:flex;flex-direction:column;align-items:flex-start;gap:0">
     <div style="display:flex;gap:16px;flex-wrap:wrap;margin-bottom:12px">
-      <a href="https://tally.so/r/yPqXvd" class="btn-primary" target="_blank">📋 Get a Ballpark — Takes 2 Min</a>
+      <a href="#quote-form-anchor" class="btn-primary">📋 Get a Ballpark — Takes 2 Min</a>
       <a href="tel:9732213464" class="btn-secondary">📞 Call Us</a>
     </div>
-    <p style="font-size:.72rem;color:rgba(255,255,255,.65);max-width:460px;margin:10px auto 0;line-height:1.55;text-align:center">By contacting us, you agree to receive SMS messages from Great Precision Property Services regarding scheduling, estimates, job updates, and customer support. Message frequency varies. Msg &amp; data rates may apply. Reply <strong style="color:rgba(255,255,255,.8)">STOP</strong> to opt out, <strong style="color:rgba(255,255,255,.8)">HELP</strong> for assistance. We never share your information. <a href="/privacy" style="color:rgba(255,255,255,.75)">Privacy Policy</a></p>
+    <p style="font-size:.72rem;color:rgba(255,255,255,.65);max-width:460px;margin:10px auto 0;line-height:1.55;text-align:center">We'll never share your information. Read our <a href="/privacy" style="color:rgba(255,255,255,.75)">Privacy Policy</a>. SMS opt-in is optional and confirmed via checkbox on the form below.</p>
   </div>
   </div>
   <p class="hero-area-note">Serving Morris, Passaic &amp; Bergen County and surrounding North Jersey communities</p>
@@ -759,7 +786,7 @@
 </section>
 
 <!-- FINAL CTA -->
-<section class="final-cta">
+<section class="final-cta" id="quote-form-anchor" style="scroll-margin-top:100px;">
   <!-- INTERNAL LINK -->
   <div style="background:var(--gray);border-radius:12px;padding:28px 32px;margin-bottom:48px;border-left:4px solid var(--gold-dark);display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:16px">
     <div>
@@ -770,14 +797,46 @@
     <a href="/" style="display:inline-block;background:var(--navy);color:#fff;text-decoration:none;font-weight:700;font-size:.9rem;padding:12px 24px;border-radius:6px;white-space:nowrap">See All Our Work →</a>
   </div>
   <h2>Ready to stop recaulking every year?</h2>
-  <div class="final-cta-btns">
-  <div style="display:flex;flex-direction:column;align-items:center;gap:0">
-    <div style="display:flex;gap:16px;flex-wrap:wrap;justify-content:center;margin-bottom:12px">
-      <a href="https://tally.so/r/yPqXvd" class="btn-cta-primary" target="_blank">📋 Get a Ballpark</a>
-      <a href="tel:9732213464" class="btn-cta-secondary">📞 Call Us: (973) 221-3464</a>
+  <p style="text-align:center;color:var(--text-mid);max-width:520px;margin:0 auto 32px;">Fill out the form below and we'll get back to you with a ballpark — or call/text us directly at <a href="tel:9732213464" style="color:var(--navy);font-weight:700;text-decoration:none">(973) 221-3464</a>.</p>
+
+  <div class="quote-form-section">
+    <form name="quote-request" method="POST" data-netlify="true" netlify-honeypot="bot-field" id="quote-form">
+      <input type="hidden" name="form-name" value="quote-request">
+      <p class="qf-honeypot"><label>Don't fill this out if you're human: <input name="bot-field"></label></p>
+
+      <div class="qf-row">
+        <label for="qf-name">Name</label>
+        <input type="text" id="qf-name" name="name" required>
+      </div>
+      <div class="qf-row">
+        <label for="qf-phone">Phone</label>
+        <input type="tel" id="qf-phone" name="phone" required>
+      </div>
+      <div class="qf-row">
+        <label for="qf-email">Email (optional)</label>
+        <input type="email" id="qf-email" name="email">
+      </div>
+      <div class="qf-row">
+        <label for="qf-message">What's going on? (optional)</label>
+        <textarea id="qf-message" name="message" placeholder="e.g. kitchen counter caulk is peeling and moldy"></textarea>
+      </div>
+
+      <div class="qf-consent">
+        <input type="checkbox" id="qf-sms-consent" name="sms_consent" value="yes">
+        <label for="qf-sms-consent">By checking this box and submitting, you agree to receive SMS messages from Great Precision Property Services regarding scheduling, estimates, job updates, and customer support. Message frequency may vary. Msg &amp; data rates may apply. Reply <strong>STOP</strong> to opt out, <strong>HELP</strong> for assistance. We never share your information. <a href="/privacy" target="_blank" rel="noopener noreferrer">Privacy Policy</a></label>
+      </div>
+
+      <div class="qf-submit-row">
+        <button type="submit" class="qf-submit-btn">Get My Ballpark</button>
+        <span class="qf-or">or</span>
+        <a href="tel:9732213464" class="qf-call-link">📞 Call/Text (973) 221-3464</a>
+      </div>
+    </form>
+
+    <div class="qf-success" id="qf-success">
+      <h3>Got it — thank you!</h3>
+      <p>We'll get back to you shortly. If it's urgent, call or text us directly at (973) 221-3464.</p>
     </div>
-    <p style="font-size:.72rem;color:rgba(0,0,0,.72);max-width:460px;margin:10px auto 0;line-height:1.55;text-align:center;font-weight:500">By contacting us, you agree to receive SMS messages from Great Precision Property Services regarding scheduling, estimates, job updates, and customer support. Message frequency varies. Msg &amp; data rates may apply. Reply <strong style="color:rgba(0,0,0,.9);font-weight:700">STOP</strong> to opt out, <strong style="color:rgba(0,0,0,.9);font-weight:700">HELP</strong> for assistance. We never share your information. <a href="/privacy" style="color:rgba(0,0,0,.75);font-weight:600">Privacy Policy</a></p>
-  </div>
   </div>
 </section>
 
@@ -803,7 +862,7 @@
     <a href="/privacy" target="_blank" rel="noopener noreferrer" style="color:var(--text-light);text-decoration:none">Privacy Policy</a>
   </p>
   <p class="footer-legal">Licensed &amp; Insured &nbsp;·&nbsp; © 2026 Great Precision Property Services &nbsp;·&nbsp; greatprecisionservices.com</p>
-  <p style="text-align:right;font-size:0.7rem;color:var(--text-light);margin:8px 16px 0 0;opacity:0.6;">V2.6</p>
+  <p style="text-align:right;font-size:0.7rem;color:var(--text-light);margin:8px 16px 0 0;opacity:0.6;">V2.7</p>
 </footer>
 
 <script>
@@ -868,6 +927,27 @@ function checkZip() {
 document.getElementById("zipInput").addEventListener("keypress", function(e) {
   if (e.key === "Enter") checkZip();
 });
+
+// QUOTE FORM — AJAX submit (stays on page, no redirect)
+const quoteForm = document.getElementById('quote-form');
+if (quoteForm) {
+  quoteForm.addEventListener('submit', function (e) {
+    e.preventDefault();
+    const data = new FormData(quoteForm);
+    fetch('/', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+      body: new URLSearchParams(data).toString()
+    })
+      .then(() => {
+        quoteForm.style.display = 'none';
+        document.getElementById('qf-success').style.display = 'block';
+      })
+      .catch(() => {
+        alert('Something went wrong submitting the form. Please call or text us directly at (973) 221-3464.');
+      });
+  });
+}
 
 // SCROLL ANIMATIONS
 document.documentElement.classList.add('js-ready'); // only hide-then-reveal if JS actually runs
