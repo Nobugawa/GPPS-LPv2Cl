@@ -862,7 +862,7 @@
     <a href="/privacy" target="_blank" rel="noopener noreferrer" style="color:var(--text-light);text-decoration:none">Privacy Policy</a>
   </p>
   <p class="footer-legal">Licensed &amp; Insured &nbsp;·&nbsp; © 2026 Great Precision Property Services &nbsp;·&nbsp; greatprecisionservices.com</p>
-  <p style="text-align:right;font-size:0.7rem;color:var(--text-light);margin:8px 16px 0 0;opacity:0.6;">V2.7</p>
+  <p style="text-align:right;font-size:0.7rem;color:var(--text-light);margin:8px 16px 0 0;opacity:0.6;">V2.8</p>
 </footer>
 
 <script>
@@ -939,12 +939,15 @@ if (quoteForm) {
       headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
       body: new URLSearchParams(data).toString()
     })
-      .then(() => {
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error('Form submission failed with status ' + response.status);
+        }
         quoteForm.style.display = 'none';
         document.getElementById('qf-success').style.display = 'block';
       })
       .catch(() => {
-        alert('Something went wrong submitting the form. Please call or text us directly at (973) 221-3464.');
+        alert('Something went wrong submitting the form — it may not have gone through. Please call or text us directly at (973) 221-3464 to be safe.');
       });
   });
 }
