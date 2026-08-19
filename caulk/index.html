@@ -466,7 +466,7 @@
 .qf-row input:focus, .qf-row textarea:focus { outline:none; border-color:var(--gold-dark); background:var(--white); }
 .qf-area-row { display:flex; gap:8px; margin-bottom:10px; align-items:center; }
 .qf-area-select { flex:0 0 110px; padding:10px; border:1px solid #D8D3C8; border-radius:6px; font-size:0.85rem; background:var(--off-white); color:var(--navy); font-family:"DM Sans",sans-serif; }
-.qf-area-qty { flex:0 0 56px; padding:10px 6px; border:1px solid #D8D3C8; border-radius:6px; font-size:0.85rem; background:var(--off-white); color:var(--navy); text-align:center; }
+.qf-area-qty { flex:0 0 40px; padding:10px 4px; border:1px solid #D8D3C8; border-radius:6px; font-size:0.85rem; background:var(--off-white); color:var(--navy); text-align:center; }
 .qf-area-length { flex:0 0 100px; padding:10px 6px; border:1px solid #D8D3C8; border-radius:6px; font-size:0.8rem; background:var(--off-white); color:var(--navy); font-family:"DM Sans",sans-serif; }
 .qf-area-memo { flex:1; min-width:0; padding:10px 12px; border:1px solid #D8D3C8; border-radius:6px; font-size:0.85rem; background:var(--off-white); color:var(--navy); font-family:"DM Sans",sans-serif; }
 .qf-area-row input.qf-area-memo { width:auto; flex:1; min-width:80px; padding:10px 12px; }
@@ -483,6 +483,14 @@
   .qf-area-memo { flex:1 1 100%; order:3; }
 }
 .qf-row input[type=file] { width:100%; padding:10px; border:1px dashed #D8D3C8; border-radius:6px; background:var(--off-white); font-size:0.85rem; font-family:"DM Sans",sans-serif; }
+
+/* BACK TO TOP */
+.back-to-top-btn { position:fixed; bottom:24px; right:24px; width:48px; height:48px; border-radius:50%; background:var(--navy); color:var(--gold); border:none; font-size:1.3rem; line-height:1; cursor:pointer; box-shadow:0 4px 16px rgba(0,0,0,0.28); opacity:0; visibility:hidden; transform:translateY(8px); transition:opacity 0.25s ease, transform 0.25s ease, visibility 0.25s ease; z-index:999; }
+.back-to-top-btn.visible { opacity:1; visibility:visible; transform:translateY(0); }
+.back-to-top-btn:hover { background:#152d4a; }
+@media (max-width:520px) {
+  .back-to-top-btn { bottom:16px; right:16px; width:44px; height:44px; }
+}
 .qf-consent { display:flex; gap:10px; align-items:flex-start; margin:22px 0 24px; padding:16px; background:var(--off-white); border-radius:6px; }
 .qf-consent input[type=checkbox] { margin-top:3px; width:16px; height:16px; flex-shrink:0; accent-color:var(--gold-dark); }
 .qf-consent label { font-size:0.78rem; color:var(--text-mid); line-height:1.6; }
@@ -849,10 +857,10 @@
             </select>
             <input type="number" class="qf-area-qty" min="1" value="1" title="Quantity">
             <select class="qf-area-length" title="Roughly how long, end to end?">
-              <option value="">Length?</option>
-              <option value="Under 10 ft">Under 10 ft</option>
-              <option value="10–20 ft">10–20 ft</option>
-              <option value="20–30 ft">20–30 ft</option>
+              <option value="">Length (linear ft)</option>
+              <option value="Under 15 ft">Under 15 ft</option>
+              <option value="15–25 ft">15–25 ft (typical kitchen)</option>
+              <option value="25+ ft">25+ ft — let's talk</option>
               <option value="Not sure">Not sure</option>
             </select>
             <input type="text" class="qf-area-memo" placeholder="Condition — e.g. peeling, moldy, gap at corner">
@@ -912,7 +920,7 @@
     <a href="/privacy" target="_blank" rel="noopener noreferrer" style="color:var(--text-light);text-decoration:none">Privacy Policy</a>
   </p>
   <p class="footer-legal">Licensed &amp; Insured &nbsp;·&nbsp; © 2026 Great Precision Property Services &nbsp;·&nbsp; greatprecisionservices.com</p>
-  <p style="text-align:right;font-size:0.7rem;color:var(--text-light);margin:8px 16px 0 0;opacity:0.6;">V3.2</p>
+  <p style="text-align:right;font-size:0.7rem;color:var(--text-light);margin:8px 16px 0 0;opacity:0.6;">V3.3</p>
 </footer>
 
 <script>
@@ -1070,6 +1078,21 @@ if (quoteForm) {
   });
 }
 
+// BACK TO TOP
+const backToTopBtn = document.getElementById('back-to-top');
+if (backToTopBtn) {
+  window.addEventListener('scroll', function () {
+    if (window.scrollY > 600) {
+      backToTopBtn.classList.add('visible');
+    } else {
+      backToTopBtn.classList.remove('visible');
+    }
+  });
+  backToTopBtn.addEventListener('click', function () {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+}
+
 // SCROLL ANIMATIONS
 document.documentElement.classList.add('js-ready'); // only hide-then-reveal if JS actually runs
 const observer = new IntersectionObserver((entries) => {
@@ -1139,5 +1162,6 @@ document.addEventListener('keydown', function(e) {
   if (e.key === 'Escape') closeLightbox();
 });
 </script>
+<button id="back-to-top" class="back-to-top-btn" aria-label="Back to top">↑</button>
 </body>
 </html>
