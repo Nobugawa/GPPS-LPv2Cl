@@ -1,7 +1,7 @@
 DEPLOYMENT INSTRUCTIONS
 ========================
 
-1) caulk-V3.3.html
+1) caulk-V3.4.html
    -> Copy it, rename the copy to "index.html"
    -> Upload to:  /caulk/index.html
 
@@ -15,7 +15,7 @@ Repo structure after upload should look like:
 
   GPPS-LPv2Cl/
     caulk/
-      index.html                <- renamed from caulk-V3.3.html
+      index.html                <- renamed from caulk-V3.4.html
       images/                   <- caulk-specific photos live here
         caulk-removal-before.png
         caulk-corner-after.png

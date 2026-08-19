@@ -464,23 +464,20 @@
 }
 .qf-row textarea { resize:vertical; min-height:70px; }
 .qf-row input:focus, .qf-row textarea:focus { outline:none; border-color:var(--gold-dark); background:var(--white); }
-.qf-area-row { display:flex; gap:8px; margin-bottom:10px; align-items:center; }
-.qf-area-select { flex:0 0 110px; padding:10px; border:1px solid #D8D3C8; border-radius:6px; font-size:0.85rem; background:var(--off-white); color:var(--navy); font-family:"DM Sans",sans-serif; }
-.qf-area-qty { flex:0 0 40px; padding:10px 4px; border:1px solid #D8D3C8; border-radius:6px; font-size:0.85rem; background:var(--off-white); color:var(--navy); text-align:center; }
-.qf-area-length { flex:0 0 100px; padding:10px 6px; border:1px solid #D8D3C8; border-radius:6px; font-size:0.8rem; background:var(--off-white); color:var(--navy); font-family:"DM Sans",sans-serif; }
-.qf-area-memo { flex:1; min-width:0; padding:10px 12px; border:1px solid #D8D3C8; border-radius:6px; font-size:0.85rem; background:var(--off-white); color:var(--navy); font-family:"DM Sans",sans-serif; }
-.qf-area-row input.qf-area-memo { width:auto; flex:1; min-width:80px; padding:10px 12px; }
-.qf-area-remove { flex:0 0 32px; height:32px; border:none; background:transparent; color:var(--text-light); font-size:1rem; cursor:pointer; border-radius:6px; }
+.qf-area-row { margin-bottom:14px; padding-bottom:14px; border-bottom:1px solid #EDE9DF; }
+.qf-area-row:last-child { border-bottom:none; margin-bottom:0; padding-bottom:0; }
+.qf-area-row-top { display:flex; gap:8px; align-items:center; margin-bottom:8px; }
+.qf-area-select { flex:0 0 100px; padding:10px; border:1px solid #D8D3C8; border-radius:6px; font-size:0.85rem; background:var(--off-white); color:var(--navy); font-family:"DM Sans",sans-serif; }
+.qf-area-qty { flex:0 0 34px; padding:10px 2px; border:1px solid #D8D3C8; border-radius:6px; font-size:0.85rem; background:var(--off-white); color:var(--navy); text-align:center; }
+.qf-area-length { flex:1; min-width:0; padding:10px 6px; border:1px solid #D8D3C8; border-radius:6px; font-size:0.8rem; background:var(--off-white); color:var(--navy); font-family:"DM Sans",sans-serif; }
+.qf-area-memo { width:100%; padding:10px 12px; border:1px solid #D8D3C8; border-radius:6px; font-size:0.85rem; background:var(--off-white); color:var(--navy); font-family:"DM Sans",sans-serif; }
+.qf-area-remove { flex:0 0 30px; height:30px; border:none; background:transparent; color:var(--text-light); font-size:1rem; cursor:pointer; border-radius:6px; }
 .qf-area-remove:hover:not(:disabled) { background:rgba(192,57,43,0.1); color:#C0392B; }
 .qf-area-remove:disabled { opacity:0.25; cursor:default; }
 .qf-add-area-btn { background:none; border:1px dashed var(--gold-dark); color:var(--gold-dark); font-weight:700; font-size:0.82rem; padding:8px 16px; border-radius:6px; cursor:pointer; font-family:"DM Sans",sans-serif; }
 .qf-add-area-btn:hover { background:rgba(239,191,90,0.1); }
 @media (max-width:520px) {
-  .qf-area-row { flex-wrap:wrap; }
-  .qf-area-select { flex:1 1 45%; }
-  .qf-area-qty { flex:0 0 60px; }
-  .qf-area-length { flex:1 1 40%; }
-  .qf-area-memo { flex:1 1 100%; order:3; }
+  .qf-area-select { flex:0 0 88px; font-size:0.8rem; }
 }
 .qf-row input[type=file] { width:100%; padding:10px; border:1px dashed #D8D3C8; border-radius:6px; background:var(--off-white); font-size:0.85rem; font-family:"DM Sans",sans-serif; }
 
@@ -847,24 +844,26 @@
         <label>What needs caulking? (add each area)</label>
         <div id="qf-areas-list">
           <div class="qf-area-row">
-            <select class="qf-area-select">
-              <option value="">Area</option>
-              <option value="Kitchen">Kitchen</option>
-              <option value="Bathroom Sink/Vanity">Bathroom Sink/Vanity</option>
-              <option value="Bathtub">Bathtub</option>
-              <option value="Shower">Shower</option>
-              <option value="Other">Other</option>
-            </select>
-            <input type="number" class="qf-area-qty" min="1" value="1" title="Quantity">
-            <select class="qf-area-length" title="Roughly how long, end to end?">
-              <option value="">Length (linear ft)</option>
-              <option value="Under 15 ft">Under 15 ft</option>
-              <option value="15–25 ft">15–25 ft (typical kitchen)</option>
-              <option value="25+ ft">25+ ft — let's talk</option>
-              <option value="Not sure">Not sure</option>
-            </select>
+            <div class="qf-area-row-top">
+              <select class="qf-area-select">
+                <option value="">Area</option>
+                <option value="Kitchen">Kitchen</option>
+                <option value="Bathroom Sink/Vanity">Bathroom Sink/Vanity</option>
+                <option value="Bathtub">Bathtub</option>
+                <option value="Shower">Shower</option>
+                <option value="Other">Other</option>
+              </select>
+              <input type="number" class="qf-area-qty" min="1" value="1" title="Quantity">
+              <select class="qf-area-length" title="Roughly how long, end to end?">
+                <option value="">Length (linear ft)</option>
+                <option value="Under 15 ft">Under 15 ft</option>
+                <option value="15–25 ft">15–25 ft</option>
+                <option value="25+ ft">25+ ft — let's talk</option>
+                <option value="Not sure">Not sure</option>
+              </select>
+              <button type="button" class="qf-area-remove" aria-label="Remove this area" disabled>✕</button>
+            </div>
             <input type="text" class="qf-area-memo" placeholder="Condition — e.g. peeling, moldy, gap at corner">
-            <button type="button" class="qf-area-remove" aria-label="Remove this area" disabled>✕</button>
           </div>
         </div>
         <button type="button" id="qf-add-area" class="qf-add-area-btn">+ Add Another Area</button>
@@ -920,7 +919,7 @@
     <a href="/privacy" target="_blank" rel="noopener noreferrer" style="color:var(--text-light);text-decoration:none">Privacy Policy</a>
   </p>
   <p class="footer-legal">Licensed &amp; Insured &nbsp;·&nbsp; © 2026 Great Precision Property Services &nbsp;·&nbsp; greatprecisionservices.com</p>
-  <p style="text-align:right;font-size:0.7rem;color:var(--text-light);margin:8px 16px 0 0;opacity:0.6;">V3.3</p>
+  <p style="text-align:right;font-size:0.7rem;color:var(--text-light);margin:8px 16px 0 0;opacity:0.6;">V3.4</p>
 </footer>
 
 <script>
