@@ -464,6 +464,25 @@
 }
 .qf-row textarea { resize:vertical; min-height:70px; }
 .qf-row input:focus, .qf-row textarea:focus { outline:none; border-color:var(--gold-dark); background:var(--white); }
+.qf-area-row { display:flex; gap:8px; margin-bottom:10px; align-items:center; }
+.qf-area-select { flex:0 0 110px; padding:10px; border:1px solid #D8D3C8; border-radius:6px; font-size:0.85rem; background:var(--off-white); color:var(--navy); font-family:"DM Sans",sans-serif; }
+.qf-area-qty { flex:0 0 56px; padding:10px 6px; border:1px solid #D8D3C8; border-radius:6px; font-size:0.85rem; background:var(--off-white); color:var(--navy); text-align:center; }
+.qf-area-length { flex:0 0 100px; padding:10px 6px; border:1px solid #D8D3C8; border-radius:6px; font-size:0.8rem; background:var(--off-white); color:var(--navy); font-family:"DM Sans",sans-serif; }
+.qf-area-memo { flex:1; min-width:0; padding:10px 12px; border:1px solid #D8D3C8; border-radius:6px; font-size:0.85rem; background:var(--off-white); color:var(--navy); font-family:"DM Sans",sans-serif; }
+.qf-area-row input.qf-area-memo { width:auto; flex:1; min-width:80px; padding:10px 12px; }
+.qf-area-remove { flex:0 0 32px; height:32px; border:none; background:transparent; color:var(--text-light); font-size:1rem; cursor:pointer; border-radius:6px; }
+.qf-area-remove:hover:not(:disabled) { background:rgba(192,57,43,0.1); color:#C0392B; }
+.qf-area-remove:disabled { opacity:0.25; cursor:default; }
+.qf-add-area-btn { background:none; border:1px dashed var(--gold-dark); color:var(--gold-dark); font-weight:700; font-size:0.82rem; padding:8px 16px; border-radius:6px; cursor:pointer; font-family:"DM Sans",sans-serif; }
+.qf-add-area-btn:hover { background:rgba(239,191,90,0.1); }
+@media (max-width:520px) {
+  .qf-area-row { flex-wrap:wrap; }
+  .qf-area-select { flex:1 1 45%; }
+  .qf-area-qty { flex:0 0 60px; }
+  .qf-area-length { flex:1 1 40%; }
+  .qf-area-memo { flex:1 1 100%; order:3; }
+}
+.qf-row input[type=file] { width:100%; padding:10px; border:1px dashed #D8D3C8; border-radius:6px; background:var(--off-white); font-size:0.85rem; font-family:"DM Sans",sans-serif; }
 .qf-consent { display:flex; gap:10px; align-items:flex-start; margin:22px 0 24px; padding:16px; background:var(--off-white); border-radius:6px; }
 .qf-consent input[type=checkbox] { margin-top:3px; width:16px; height:16px; flex-shrink:0; accent-color:var(--gold-dark); }
 .qf-consent label { font-size:0.78rem; color:var(--text-mid); line-height:1.6; }
@@ -800,8 +819,8 @@
   <p style="text-align:center;color:var(--text-mid);max-width:520px;margin:0 auto 32px;">Fill out the form below and we'll get back to you with a ballpark — or call/text us directly at <a href="tel:9732213464" style="color:var(--navy);font-weight:700;text-decoration:none">(973) 221-3464</a>.</p>
 
   <div class="quote-form-section">
-    <form name="quote-request" method="POST" data-netlify="true" netlify-honeypot="bot-field" id="quote-form">
-      <input type="hidden" name="form-name" value="quote-request">
+    <form name="caulk-request" method="POST" data-netlify="true" netlify-honeypot="bot-field" id="caulk-quote-form">
+      <input type="hidden" name="form-name" value="caulk-request">
       <p class="qf-honeypot"><label>Don't fill this out if you're human: <input name="bot-field"></label></p>
 
       <div class="qf-row">
@@ -817,8 +836,39 @@
         <input type="email" id="qf-email" name="email">
       </div>
       <div class="qf-row">
-        <label for="qf-message">What's going on? (optional)</label>
-        <textarea id="qf-message" name="message" placeholder="e.g. kitchen counter caulk is peeling and moldy"></textarea>
+        <label>What needs caulking? (add each area)</label>
+        <div id="qf-areas-list">
+          <div class="qf-area-row">
+            <select class="qf-area-select">
+              <option value="">Area</option>
+              <option value="Kitchen">Kitchen</option>
+              <option value="Bathroom Sink/Vanity">Bathroom Sink/Vanity</option>
+              <option value="Bathtub">Bathtub</option>
+              <option value="Shower">Shower</option>
+              <option value="Other">Other</option>
+            </select>
+            <input type="number" class="qf-area-qty" min="1" value="1" title="Quantity">
+            <select class="qf-area-length" title="Roughly how long, end to end?">
+              <option value="">Length?</option>
+              <option value="Under 10 ft">Under 10 ft</option>
+              <option value="10–20 ft">10–20 ft</option>
+              <option value="20–30 ft">20–30 ft</option>
+              <option value="Not sure">Not sure</option>
+            </select>
+            <input type="text" class="qf-area-memo" placeholder="Condition — e.g. peeling, moldy, gap at corner">
+            <button type="button" class="qf-area-remove" aria-label="Remove this area" disabled>✕</button>
+          </div>
+        </div>
+        <button type="button" id="qf-add-area" class="qf-add-area-btn">+ Add Another Area</button>
+        <input type="hidden" name="areas_summary" id="qf-areas-summary">
+      </div>
+      <div class="qf-row">
+        <label for="qf-photos">Add a photo or two (optional, but it helps a lot)</label>
+        <input type="file" id="qf-photos" name="photos" accept="image/*" multiple>
+      </div>
+      <div class="qf-row">
+        <label for="qf-message">Anything else? (optional)</label>
+        <textarea id="qf-message" name="message" placeholder="Tight access, upper floors, past repairs, timeline, etc."></textarea>
       </div>
 
       <div class="qf-consent">
@@ -862,7 +912,7 @@
     <a href="/privacy" target="_blank" rel="noopener noreferrer" style="color:var(--text-light);text-decoration:none">Privacy Policy</a>
   </p>
   <p class="footer-legal">Licensed &amp; Insured &nbsp;·&nbsp; © 2026 Great Precision Property Services &nbsp;·&nbsp; greatprecisionservices.com</p>
-  <p style="text-align:right;font-size:0.7rem;color:var(--text-light);margin:8px 16px 0 0;opacity:0.6;">V2.8</p>
+  <p style="text-align:right;font-size:0.7rem;color:var(--text-light);margin:8px 16px 0 0;opacity:0.6;">V3.2</p>
 </footer>
 
 <script>
@@ -928,16 +978,84 @@ document.getElementById("zipInput").addEventListener("keypress", function(e) {
   if (e.key === "Enter") checkZip();
 });
 
+// QUOTE FORM — dynamic area rows (Add/Remove)
+const areasList = document.getElementById('qf-areas-list');
+const addAreaBtn = document.getElementById('qf-add-area');
+
+function updateRemoveButtons() {
+  const rows = areasList.querySelectorAll('.qf-area-row');
+  rows.forEach((row) => {
+    row.querySelector('.qf-area-remove').disabled = rows.length <= 1;
+  });
+}
+
+function updateLengthVisibility(row) {
+  const area = row.querySelector('.qf-area-select').value;
+  const lengthField = row.querySelector('.qf-area-length');
+  if (area === 'Kitchen') {
+    lengthField.style.display = '';
+  } else {
+    lengthField.style.display = 'none';
+    lengthField.value = ''; // clear so a stale value can't sneak into the summary
+  }
+}
+
+function wireRow(row) {
+  row.querySelector('.qf-area-remove').addEventListener('click', function () {
+    row.remove();
+    updateRemoveButtons();
+  });
+  row.querySelector('.qf-area-select').addEventListener('change', function () {
+    updateLengthVisibility(row);
+  });
+  updateLengthVisibility(row);
+}
+
+if (addAreaBtn) {
+  wireRow(areasList.querySelector('.qf-area-row'));
+  addAreaBtn.addEventListener('click', function () {
+    const newRow = areasList.querySelector('.qf-area-row').cloneNode(true);
+    newRow.querySelector('.qf-area-select').value = '';
+    newRow.querySelector('.qf-area-qty').value = 1;
+    newRow.querySelector('.qf-area-length').value = '';
+    newRow.querySelector('.qf-area-memo').value = '';
+    areasList.appendChild(newRow);
+    wireRow(newRow);
+    updateRemoveButtons();
+  });
+}
+
+function buildAreasSummary() {
+  const rows = areasList.querySelectorAll('.qf-area-row');
+  const lines = [];
+  rows.forEach((row) => {
+    const area = row.querySelector('.qf-area-select').value;
+    const qty = row.querySelector('.qf-area-qty').value || 1;
+    const length = row.querySelector('.qf-area-length').value;
+    const memo = row.querySelector('.qf-area-memo').value.trim();
+    if (area) {
+      let line = area + ' (Qty: ' + qty + ')';
+      if (length) line += ' — Length: ' + length;
+      if (memo) line += ' — ' + memo;
+      lines.push(line);
+    }
+  });
+  document.getElementById('qf-areas-summary').value = lines.join('\n');
+}
+
 // QUOTE FORM — AJAX submit (stays on page, no redirect)
-const quoteForm = document.getElementById('quote-form');
+// NOTE: multipart/form-data (not urlencoded) so the photo upload field works —
+// the browser sets the correct Content-Type + boundary automatically when we
+// pass the raw FormData object as the body instead of converting it to a string.
+const quoteForm = document.getElementById('caulk-quote-form');
 if (quoteForm) {
   quoteForm.addEventListener('submit', function (e) {
     e.preventDefault();
+    buildAreasSummary();
     const data = new FormData(quoteForm);
     fetch('/', {
       method: 'POST',
-      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-      body: new URLSearchParams(data).toString()
+      body: data
     })
       .then((response) => {
         if (!response.ok) {
