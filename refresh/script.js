@@ -1,3 +1,23 @@
+// Load Google Analytics 4 + Google Ads tracking for Precision Refresh.
+(() => {
+  const GA4_ID = 'G-83R32D6B21';
+  const ADS_ID = 'AW-18488245831';
+
+  window.dataLayer = window.dataLayer || [];
+  window.gtag = window.gtag || function(){ window.dataLayer.push(arguments); };
+
+  if (!document.querySelector('script[src*="googletagmanager.com/gtag/js"]')) {
+    const tag = document.createElement('script');
+    tag.async = true;
+    tag.src = `https://www.googletagmanager.com/gtag/js?id=${GA4_ID}`;
+    document.head.appendChild(tag);
+  }
+
+  window.gtag('js', new Date());
+  window.gtag('config', GA4_ID);
+  window.gtag('config', ADS_ID);
+})();
+
 // Lightweight enhancements only. The form is Netlify-compatible and works without JS.
 document.querySelectorAll('a[href^="#"]').forEach(link => {
   link.addEventListener('click', event => {
@@ -10,6 +30,46 @@ document.querySelectorAll('a[href^="#"]').forEach(link => {
   });
 });
 
+// Capture UTM attribution in the Netlify refresh-request form.
+(() => {
+  const form = document.querySelector('form[name="refresh-request"]');
+  if (!form) return;
+
+  const utmKeys = ['utm_source', 'utm_medium', 'utm_campaign', 'utm_content', 'utm_term'];
+  const params = new URLSearchParams(window.location.search);
+  const storageKey = 'gpps_refresh_utm';
+  let saved = {};
+
+  try {
+    saved = JSON.parse(sessionStorage.getItem(storageKey) || '{}');
+  } catch (_) {
+    saved = {};
+  }
+
+  const current = {};
+  utmKeys.forEach(key => {
+    const value = params.get(key);
+    if (value) current[key] = value.trim();
+  });
+
+  if (Object.keys(current).length) {
+    saved = { ...saved, ...current };
+    try {
+      sessionStorage.setItem(storageKey, JSON.stringify(saved));
+    } catch (_) {}
+  }
+
+  utmKeys.forEach(key => {
+    let input = form.querySelector(`input[name="${key}"]`);
+    if (!input) {
+      input = document.createElement('input');
+      input.type = 'hidden';
+      input.name = key;
+      form.appendChild(input);
+    }
+    input.value = saved[key] || '';
+  });
+})();
 
 // Photo magnifier / lightbox viewer
 (() => {
