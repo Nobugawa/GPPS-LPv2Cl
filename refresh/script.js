@@ -1,7 +1,6 @@
-// Load Google Analytics 4 + Google Ads tracking for Precision Refresh.
+// Load Google Analytics 4 tracking for Precision Refresh.
 (() => {
-  const GA4_ID = 'G-83R32D6B21';
-  const ADS_ID = 'AW-18488245831';
+  const GA4_ID = 'G-B15P44DQS3';
 
   window.dataLayer = window.dataLayer || [];
   window.gtag = window.gtag || function(){ window.dataLayer.push(arguments); };
@@ -15,7 +14,6 @@
 
   window.gtag('js', new Date());
   window.gtag('config', GA4_ID);
-  window.gtag('config', ADS_ID);
 })();
 
 // Lightweight enhancements only. The form is Netlify-compatible and works without JS.
